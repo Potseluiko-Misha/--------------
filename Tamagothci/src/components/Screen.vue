@@ -45,21 +45,21 @@
             />
         </div>
         <div class="screen_action">
-            <v-button>
+            <v-btn>
                 🍴
-            </v-button>
-            <v-button>
+            </v-btn>
+            <v-btn>
                 ⚽️
-            </v-button>
-            <v-button>
-                🛏
-            </v-button>
-            <v-button>
+            </v-btn>
+            <v-btn>
+                🛌
+            </v-btn>
+            <v-btn>
                 👨‍⚕️
-            </v-button>
-            <v-button>
+            </v-btn>
+            <v-btn>
                 🧽
-            </v-button>
+            </v-btn>
         </div>
     </div>
 </template>
@@ -82,6 +82,15 @@
 .screen_header {
     display: flex;
     justify-content: space-around;
+}
+
+.screen_action {
+    display: flex;
+    justify-content: space-around;
+    button {
+        background-color: rgb(207, 207, 207);
+        font-size: 24px;
+    }
 }
 
 </style>
