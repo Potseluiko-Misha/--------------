@@ -4,7 +4,7 @@
             <v-col>
                 <div class="egg">
                     <div class="tg_screen">
-                        <!-- screen -->
+                        <Screen/>
                     </div>
                     <div class="tg_buttons">
                         <div class="flex between">
@@ -22,6 +22,8 @@
 </template>
 
 <script setup>
+import Screen from './Screen.vue';
+
 
 </script>
 
@@ -42,7 +44,7 @@
 //<!-- 1024 на 1024 разрешение картинок -->
 .tg_screen {
     width: 600px;
-    
+
 }
 
 .tg_buttons {
