@@ -31,7 +31,7 @@
 <script setup>
 import { ref } from 'vue';
 import Screen from './Screen.vue';
-import { pet } from '@/store';
+import { GAME_SPEED, pet } from '@/store';
 
 let newPetName = ref('');
 
@@ -50,7 +50,7 @@ const createPet = () => {
 }
 
 const startGame = () => {
-    
+    setTimeout(() => {}, 100 * GAME_SPEED);
 }
 
 </script>
