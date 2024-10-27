@@ -3,7 +3,7 @@
         <v-row>
             <v-col>
                 <div class="egg">
-                    <div>
+                    <div class="tg_screen">
                         <!-- screen -->
                     </div>
                     <div class="tg_buttons">
@@ -38,6 +38,11 @@
     aspect-ratio: 3 / 4;
     border-radius: 100% / 125% 125% 80% 80%;
     position: relative;
+}
+//<!-- 1024 на 1024 разрешение картинок -->
+.tg_screen {
+    width: 600px;
+    
 }
 
 .tg_buttons {
