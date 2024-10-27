@@ -3,35 +3,35 @@
         <div class="screen_header">
             <v-progress-circular
                 :size="50"
-                color="green"
+                :color="getColorByValue(pet.state.happiness)"
                 :model-value="pet.state.happiness"
             >
                 <template v-slot:default>😃</template> 
             </v-progress-circular>
             <v-progress-circular
                 :size="50"
-                color="orange"
+                :color="getColorByValue(pet.state.hungry)"
                 :model-value="pet.state.hungry"
             >
                 <template v-slot:default>🍔</template> 
             </v-progress-circular>
             <v-progress-circular
                 :size="50"
-                color="orange"
+                :color="getColorByValue(pet.state.energy)"
                 :model-value="pet.state.energy"
             >
                 <template v-slot:default>💪</template> 
             </v-progress-circular>
             <v-progress-circular
                 :size="50"
-                color="red"
+                :color="getColorByValue(pet.state.healhty)"
                 :model-value="pet.state.healhty"
             >
                 <template v-slot:default>💊</template> 
             </v-progress-circular>
             <v-progress-circular
                 :size="50"
-                color="red"
+                :color="getColorByValue(pet.state.hygiene)"
                 :model-value="pet.state.hygiene"
             >
                 <template v-slot:default>🚿</template> 
@@ -67,9 +67,9 @@
 import { pet } from '@/store'
 
 const getColorByValue = (value) => {
-    if (value > 70) {
+    if (value > GREEN_THRESHOLD) {
         return 'green';
-    } else if (value > 40) {
+    } else if (value > ORANGE_THRESHOLD) {
         return 'orange';
     } else {
         return 'red';

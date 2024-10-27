@@ -49,6 +49,10 @@ const createPet = () => {
     newPetName = '';
 }
 
+const startGame = () => {
+    
+}
+
 </script>
 
 

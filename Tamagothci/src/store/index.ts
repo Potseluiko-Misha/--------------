@@ -1,6 +1,22 @@
 import { reactive } from 'vue'
 
-export const pet = reactive({
+export const GREEN_THRESHOLD = 70;
+export const ORANGE_THRESHOLD = 40;
+
+export const GAME_SPEED = 360;
+
+function getRandomInt(max: number) {
+    return Math.floor(Math.random() * max);
+}
+
+type TPet = {
+    name: string | null,
+    state: Record<string, number>,
+    isDead: boolean,
+    decrease: (type: string) => void
+}
+
+export const pet = reactive<TPet>({
     name: null,
     state: {
         happiness: 1,
@@ -9,5 +25,8 @@ export const pet = reactive({
         healhty: 1,
         hygiene: 1,
     },
-    isDead: false
+    isDead: false,
+    decrease(type: string) {
+        this.state[type] = this.state[type] - getRandomInt(10);
+    }
 })
