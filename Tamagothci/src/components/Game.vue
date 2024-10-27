@@ -3,6 +3,7 @@
         <v-row>
             <v-col>
                 <div class="egg">
+                    <div class="spacer"></div>
                     <div class="tg_screen">
                         <Screen/>
                     </div>
@@ -15,6 +16,7 @@
                             <div class="circle"></div>
                         </div>
                     </div>
+                    <div class="spacer"></div>
                 </div>
             </v-col>
         </v-row>
@@ -32,7 +34,7 @@ import Screen from './Screen.vue';
 .egg {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     margin: 0 auto;
     background-color: wheat;
@@ -42,6 +44,11 @@ import Screen from './Screen.vue';
     position: relative;
 }
 //<!-- 1024 на 1024 разрешение картинок -->
+
+.spacer {
+    height: 20vh;
+}
+
 .tg_screen {
     width: 600px;
 

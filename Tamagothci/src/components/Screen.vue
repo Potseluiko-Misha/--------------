@@ -39,7 +39,6 @@
         </div>
         <div class="pet">
             <v-img
-                class="mb-4"
                 height="400"
                 src="@/assets/humster.png"
             />
