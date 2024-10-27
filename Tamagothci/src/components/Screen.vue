@@ -44,19 +44,19 @@
             />
         </div>
         <div class="screen_action">
-            <v-btn>
+            <v-btn @click="increaeValue('hungry')">
                 🍴
             </v-btn>
-            <v-btn>
+            <v-btn @click="increaeValue('happiness')">
                 ⚽️
             </v-btn>
-            <v-btn>
+            <v-btn @click="increaeValue('energy')">
                 🛌
             </v-btn>
-            <v-btn>
+            <v-btn @click="increaeValue('healhty')">
                 👨‍⚕️
             </v-btn>
-            <v-btn>
+            <v-btn @click="increaeValue('hygiene')">
                 🧽
             </v-btn>
         </div>
@@ -75,6 +75,10 @@ const getColorByValue = (value) => {
     } else {
         return 'red';
     }
+}
+
+const increaeValue = (type) => {
+    pet.increase(type);
 }
 
 </script>
