@@ -2,25 +2,40 @@
     <div>
         <div class="screen_header">
             <v-progress-circular
+                :size="50"
                 color="green"
                 model-value="100"
-            ></v-progress-circular>
+            >
+                <template v-slot:default>😃</template> 
+            </v-progress-circular>
             <v-progress-circular
+                :size="50"
                 color="orange"
                 model-value="70"
-            ></v-progress-circular>
+            >
+                <template v-slot:default>🍔</template> 
+            </v-progress-circular>
             <v-progress-circular
+                :size="50"
                 color="orange"
                 model-value="50"
-            ></v-progress-circular>
+            >
+                <template v-slot:default>💪</template> 
+            </v-progress-circular>
             <v-progress-circular
+                :size="50"
                 color="red"
                 model-value="40"
-            ></v-progress-circular>
+            >
+                <template v-slot:default>💊</template> 
+            </v-progress-circular>
             <v-progress-circular
+                :size="50"
                 color="red"
                 model-value="10"
-            ></v-progress-circular>
+            >
+                <template v-slot:default>🚿</template> 
+            </v-progress-circular>
         </div>
         <div class="pet"></div>
         <div class="screen_action"></div>
