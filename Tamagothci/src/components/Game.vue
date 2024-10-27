@@ -55,6 +55,7 @@ const startGame = () => {
 
 const decreaseTimer = () => {
     setTimeout(() => {
+        // if..
         pet.decrease('happiness');
         pet.decrease('hungry');
         pet.decrease('energy');
