@@ -39,6 +39,13 @@ let newPetName = ref('');
 
 const createPet = () => {
     pet.name = newPetName;
+    pet.state = {
+        happiness: 100,
+        hungry: 100,
+        energy: 100,
+        healhty: 100,
+        hygiene: 100,
+    }
     newPetName = '';
 }
 

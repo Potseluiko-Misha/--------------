@@ -66,6 +66,15 @@
 <script setup>
 import { pet } from '@/store'
 
+const getColorByValue = (value) => {
+    if (value > 70) {
+        return 'green';
+    } else if (value > 40) {
+        return 'orange';
+    } else {
+        return 'red';
+    }
+}
 
 </script>
 
