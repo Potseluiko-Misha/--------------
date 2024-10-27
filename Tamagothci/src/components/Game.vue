@@ -36,7 +36,6 @@ import { GAME_SPEED, pet } from '@/store';
 let newPetName = ref('');
 
 
-
 const createPet = () => {
     pet.name = newPetName;
     pet.state = {
@@ -47,10 +46,22 @@ const createPet = () => {
         hygiene: 100,
     }
     newPetName = '';
+    startGame();
 }
 
 const startGame = () => {
-    setTimeout(() => {}, 100 * GAME_SPEED);
+    decreaseTimer();
+}
+
+const decreaseTimer = () => {
+    setTimeout(() => {
+        pet.decrease('happiness');
+        pet.decrease('hungry');
+        pet.decrease('energy');
+        pet.decrease('healhty');
+        pet.decrease('hygiene');
+        decreaseTimer();
+    }, 1000 * GAME_SPEED);
 }
 
 </script>

@@ -64,7 +64,8 @@
 </template>
 
 <script setup>
-import { pet } from '@/store'
+import { pet, GREEN_THRESHOLD, ORANGE_THRESHOLD } from '@/store'
+ 
 
 const getColorByValue = (value) => {
     if (value > GREEN_THRESHOLD) {

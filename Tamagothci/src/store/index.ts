@@ -3,7 +3,7 @@ import { reactive } from 'vue'
 export const GREEN_THRESHOLD = 70;
 export const ORANGE_THRESHOLD = 40;
 
-export const GAME_SPEED = 360;
+export const GAME_SPEED = 1;
 
 function getRandomInt(max: number) {
     return Math.floor(Math.random() * max);
