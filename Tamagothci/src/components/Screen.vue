@@ -4,35 +4,35 @@
             <v-progress-circular
                 :size="50"
                 color="green"
-                model-value="100"
+                :model-value="pet.state.happiness"
             >
                 <template v-slot:default>😃</template> 
             </v-progress-circular>
             <v-progress-circular
                 :size="50"
                 color="orange"
-                model-value="70"
+                :model-value="pet.state.hungry"
             >
                 <template v-slot:default>🍔</template> 
             </v-progress-circular>
             <v-progress-circular
                 :size="50"
                 color="orange"
-                model-value="50"
+                :model-value="pet.state.energy"
             >
                 <template v-slot:default>💪</template> 
             </v-progress-circular>
             <v-progress-circular
                 :size="50"
                 color="red"
-                model-value="40"
+                :model-value="pet.state.healhty"
             >
                 <template v-slot:default>💊</template> 
             </v-progress-circular>
             <v-progress-circular
                 :size="50"
                 color="red"
-                model-value="10"
+                :model-value="pet.state.hygiene"
             >
                 <template v-slot:default>🚿</template> 
             </v-progress-circular>
@@ -64,6 +64,8 @@
 </template>
 
 <script setup>
+import { pet } from '@/store'
+
 
 </script>
 

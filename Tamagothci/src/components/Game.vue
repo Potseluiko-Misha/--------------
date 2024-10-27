@@ -10,7 +10,7 @@
                     <div v-else class="create-new-pet">
                         <v-label class="mb-4">Create new pet</v-label>
                         <v-text-field v-model="newPetName" placeholder="Pet name"></v-text-field>
-                        <v-btn @click="">Create</v-btn>
+                        <v-btn @click="createPet">Create</v-btn>
                     </div>
                     <div class="tg_buttons">
                         <div class="flex between">
@@ -29,15 +29,12 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import Screen from './Screen.vue';
 import { pet } from '@/store';
 
-const newPetName = ref('');
+let newPetName = ref('');
 
-if(pet.name === null) {
-  console.log('create new pet');
-
-}
 
 
 const createPet = () => {
