@@ -4,8 +4,13 @@
             <v-col>
                 <div class="egg">
                     <div class="spacer"></div>
-                    <div class="tg_screen">
+                    <div v-if="pet.name" class="tg_screen">
                         <Screen/>
+                    </div>
+                    <div v-else class="create-new-pet">
+                        <v-label>Create new pet</v-label>
+                        <v-text-field placeholder="Pet name"></v-text-field>
+                        <v-btn>Create</v-btn>
                     </div>
                     <div class="tg_buttons">
                         <div class="flex between">
@@ -25,6 +30,13 @@
 
 <script setup>
 import Screen from './Screen.vue';
+import { pet } from '@/store';
+
+if(pet.name === null) {
+  console.log('create new pet');
+
+}
+
 
 
 </script>

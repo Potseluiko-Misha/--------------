@@ -1,6 +1,6 @@
 import { reactive } from 'vue'
 
-export const store = reactive({
+export const pet = reactive({
     name: null,
     state: {
         happiness: 0,
