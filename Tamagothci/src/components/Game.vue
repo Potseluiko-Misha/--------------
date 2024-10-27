@@ -8,9 +8,9 @@
                         <Screen/>
                     </div>
                     <div v-else class="create-new-pet">
-                        <v-label>Create new pet</v-label>
-                        <v-text-field placeholder="Pet name"></v-text-field>
-                        <v-btn>Create</v-btn>
+                        <v-label class="mb-4">Create new pet</v-label>
+                        <v-text-field v-model="newPetName" placeholder="Pet name"></v-text-field>
+                        <v-btn @click="">Create</v-btn>
                     </div>
                     <div class="tg_buttons">
                         <div class="flex between">
@@ -32,12 +32,18 @@
 import Screen from './Screen.vue';
 import { pet } from '@/store';
 
+const newPetName = ref('');
+
 if(pet.name === null) {
   console.log('create new pet');
 
 }
 
 
+const createPet = () => {
+    pet.name = newPetName;
+    newPetName = '';
+}
 
 </script>
 
@@ -56,6 +62,12 @@ if(pet.name === null) {
     position: relative;
 }
 //<!-- 1024 на 1024 разрешение картинок -->
+
+.create-new-pet {
+    width: 40%;
+    color: black;
+    text-align: center;
+}
 
 .spacer {
     height: 20vh;
