@@ -74,7 +74,8 @@ import humsterSad from '@/assets/humsterSad.png';
 const imgList = {
     init: humster,
     neutral: humsterNeutral,
-    happy: humsterHappy
+    happy: humsterHappy,
+    sad: humsterSad,
 }
  
 
@@ -105,6 +106,9 @@ const imageSrc = computed(() => {
 
     const isSad = Object.values(pet.state).every((value) => value >= ORANGE_THRESHOLD + 10);
 
+    if (isSad) {
+        return imgList.sad;
+    }
     // happy
     // neutral
     // sad
