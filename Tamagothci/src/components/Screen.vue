@@ -72,6 +72,11 @@ import humsterNeutral from '@/assets/humsterNeutral.png';
 import humsterSad from '@/assets/humsterSad.png';
 import humsterSleepy from '@/assets/humsterSleepy.png';
 import humsterSik from '@/assets/humsterSik.png';
+import humsterEat from '@/assets/humsterEat.png';
+import humsterHealing from '@/assets/humsterHealing.png';
+import humsterPlaying from '@/assets/humsterPlaying.png';
+import humsterSleeping from '@/assets/humsterSleeping.png';
+import humsterWashing from '@/assets/humsterWashing.png';
 
 const imgList = {
     init: humster,
@@ -80,6 +85,7 @@ const imgList = {
     sad: humsterSad,
     sleepy: humsterSleepy,
     sik: humsterSik,
+    'action-hungry': humsterEat,
 }
  
 
@@ -147,6 +153,7 @@ const increaeValue = (type) => {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+   
 }
 
 .screen_header {

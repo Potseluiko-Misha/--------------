@@ -91,11 +91,14 @@ const decreaseTimer = () => {
 
 .spacer {
     height: 20vh;
+    
 }
 
 .tg_screen {
-    width: 600px;
-
+    width: 70%;
+    
+    
+    
 }
 
 .tg_buttons {
