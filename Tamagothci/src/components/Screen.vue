@@ -78,6 +78,8 @@ const imgList = {
     neutral: humsterNeutral,
     happy: humsterHappy,
     sad: humsterSad,
+    sleepy: humsterSleepy,
+    sik: humsterSik,
 }
  
 
@@ -110,6 +112,14 @@ const imageSrc = computed(() => {
 
     if (isSad) {
         return imgList.sad;
+    }
+
+    if (pet.energy < ORANGE_THRESHOLD) {
+        return imgList.sleepy;
+    }
+
+    if (pet.healhty < ORANGE_THRESHOLD) {
+        return imgList.sik;
     }
     // happy
     // neutral
