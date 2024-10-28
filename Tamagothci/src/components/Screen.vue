@@ -40,7 +40,7 @@
         <div class="pet">
             <v-img
                 height="400"
-                :src="@/assets/humster.png"
+                :src="imageSrc"
             />
         </div>
         <div class="screen_action">
@@ -66,6 +66,11 @@
 <script setup>
 import { pet, GREEN_THRESHOLD, ORANGE_THRESHOLD } from '@/store'
 import { computed } from 'vue';
+import humster from '@/assets/humster.png';
+
+const imgList = {
+    init: humster
+}
  
 
 const getColorByValue = (value) => {
@@ -79,7 +84,10 @@ const getColorByValue = (value) => {
 }
 
 const imageSrc = computed(() => {
-    
+
+
+
+    return imgList;
 })
 
 const increaeValue = (type) => {
