@@ -69,6 +69,7 @@ import { computed } from 'vue';
 import humster from '@/assets/humster.png';
 import humsterHappy from '@/assets/humsterHappy.png';
 import humsterNeutral from '@/assets/humsterNeutral.png';
+import humsterSad from '@/assets/humsterSad.png';
 
 const imgList = {
     init: humster,
@@ -92,7 +93,7 @@ const imageSrc = computed(() => {
     if (pet.action) {
         if (imgList[pet.action]) {
             resetAction();
-                return imgList[pet.action];
+            return imgList[pet.action];
         }
     }
 
@@ -102,18 +103,20 @@ const imageSrc = computed(() => {
         return imgList.happy;
     }
 
+    const isSad = Object.values(pet.state).every((value) => value >= ORANGE_THRESHOLD + 10);
+
     // happy
     // neutral
     // sad
 
 
-    return imgList.init;
+    return imgList.neutral;
 })
 
 const resetAction = () => {
     setTimeout(() => {
         pet.action = null;
-    }, 3000 * GAME_SPEED);
+    }, 1500 * GAME_SPEED);
 }
  
 const increaeValue = (type) => {

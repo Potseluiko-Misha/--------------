@@ -30,6 +30,7 @@ export const pet = reactive<TPet>({
     isDead: false,
     action: 'init',
     decrease(type: string) {
+        if (this.action) return;
         let newValue = this.state[type] - getRandomInt(10);
         if (newValue <= 0) {
             newValue = 1;
