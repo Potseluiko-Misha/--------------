@@ -87,7 +87,7 @@ const imageSrc = computed(() => {
 
 
 
-    return imgList;
+    return imgList.init;
 })
 
 const increaeValue = (type) => {
