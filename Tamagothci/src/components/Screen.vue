@@ -64,7 +64,7 @@
 </template>
 
 <script setup>
-import { pet, GREEN_THRESHOLD, ORANGE_THRESHOLD, GAME_SPEED } from '@/store'
+import { state, GREEN_THRESHOLD, ORANGE_THRESHOLD, GAME_SPEED } from '@/store'
 import { computed } from 'vue';
 import humster from '@/assets/humster.png';
 import humsterHappy from '@/assets/humsterHappy.png';
@@ -77,6 +77,8 @@ import humsterHealing from '@/assets/humsterHealing.png';
 import humsterPlaying from '@/assets/humsterPlaying.png';
 import humsterSleeping from '@/assets/humsterSleeping.png';
 import humsterWashing from '@/assets/humsterWashing.png';
+
+const pet = state.pet;
 
 const imgList = {
     init: humster,
@@ -133,7 +135,7 @@ const imageSrc = computed(() => {
     }
 
     return imgList.neutral;
-})
+});
 
 const resetAction = () => {
     setTimeout(() => {
@@ -143,7 +145,7 @@ const resetAction = () => {
  
 const increaeValue = (type) => {
     pet.action = `action-${type}`;
-    pet.increase(type);
+    state.increase(type);
 }
 
 </script>

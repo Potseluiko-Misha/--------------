@@ -29,15 +29,28 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { nextTick, ref, watch } from 'vue';
 import Screen from './Screen.vue';
-import { GAME_SPEED, pet } from '@/store';
+import { GAME_SPEED, state } from '@/store';
+
+const pet = state.pet;
 
 let newPetName = ref('');
 
 watch(pet, () => {
-    localStorage.setItem('tamagothci-pet', JSON.stringify(pet));
-})
+    if (pet.name) {
+        localStorage.setItem('tamagothci-pet', JSON.stringify(pet));
+    }
+});
+
+if (pet.name === null) {
+    const petFromStorage = JSON.parse(localStorage.getItem('tamagothci-pet'));
+    if (petFromStorage?.name) {
+        nextTick(() => {
+            state.pet = petFromStorage;
+        });
+    }
+}
 
 
 const createPet = () => {
@@ -60,11 +73,11 @@ const startGame = () => {
 const decreaseTimer = () => {
     setTimeout(() => {
         // if..
-        pet.decrease('happiness');
-        pet.decrease('hungry');
-        pet.decrease('energy');
-        pet.decrease('healhty');
-        pet.decrease('hygiene');
+        state.decrease('happiness');
+        state.decrease('hungry');
+        state.decrease('energy');
+        state.decrease('healhty');
+        state.decrease('hygiene');
         decreaseTimer();
     }, 1000 * GAME_SPEED);
 }
