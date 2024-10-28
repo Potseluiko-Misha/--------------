@@ -67,9 +67,11 @@
 import { pet, GREEN_THRESHOLD, ORANGE_THRESHOLD, GAME_SPEED } from '@/store'
 import { computed } from 'vue';
 import humster from '@/assets/humster.png';
+import humsterHappy from '@/assets/humster.png';
 
 const imgList = {
-    init: humster
+    init: humster,
+    happy: humsterHappy
 }
  
 
@@ -89,6 +91,12 @@ const imageSrc = computed(() => {
         if (imgList[pet.action]) {
                 return imgList[pet.action];
         }
+    }
+
+    const isHappy = Object.values(pet.state).every((value) => value >= GREEN_THRESHOLD);
+
+    if (isHappy) {
+        return imgList.happy;
     }
 
     // happy
