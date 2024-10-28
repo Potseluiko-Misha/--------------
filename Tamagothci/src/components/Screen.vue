@@ -64,7 +64,7 @@
 </template>
 
 <script setup>
-import { pet, GREEN_THRESHOLD, ORANGE_THRESHOLD } from '@/store'
+import { pet, GREEN_THRESHOLD, ORANGE_THRESHOLD, GAME_SPEED } from '@/store'
 import { computed } from 'vue';
 import humster from '@/assets/humster.png';
 
@@ -84,12 +84,22 @@ const getColorByValue = (value) => {
 }
 
 const imageSrc = computed(() => {
-
+    //check action
+    if (pet.action) {
+        if (imgList[pet.action]) {
+            
+            return imgList[pet.action];
+        }
+    }
 
 
     return imgList.init;
 })
 
+const reserAction = () => {
+    setTimeout(() => {}, 3000 * GAME_SPEED);
+}
+ 
 const increaeValue = (type) => {
     pet.increase(type);
 }
