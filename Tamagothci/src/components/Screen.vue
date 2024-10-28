@@ -87,17 +87,22 @@ const imageSrc = computed(() => {
     //check action
     if (pet.action) {
         if (imgList[pet.action]) {
-            
-            return imgList[pet.action];
+                return imgList[pet.action];
         }
     }
+
+    // happy
+    // neutral
+    // sad
 
 
     return imgList.init;
 })
 
 const reserAction = () => {
-    setTimeout(() => {}, 3000 * GAME_SPEED);
+    setTimeout(() => {
+        pet.action = null;
+    }, 3000 * GAME_SPEED);
 }
  
 const increaeValue = (type) => {
