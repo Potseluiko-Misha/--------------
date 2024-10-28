@@ -70,6 +70,8 @@ import humster from '@/assets/humster.png';
 import humsterHappy from '@/assets/humsterHappy.png';
 import humsterNeutral from '@/assets/humsterNeutral.png';
 import humsterSad from '@/assets/humsterSad.png';
+import humsterSleepy from '@/assets/humsterSleepy.png';
+import humsterSik from '@/assets/humsterSik.png';
 
 const imgList = {
     init: humster,
