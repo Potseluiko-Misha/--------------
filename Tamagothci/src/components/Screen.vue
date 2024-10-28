@@ -67,7 +67,8 @@
 import { pet, GREEN_THRESHOLD, ORANGE_THRESHOLD, GAME_SPEED } from '@/store'
 import { computed } from 'vue';
 import humster from '@/assets/humster.png';
-import humsterHappy from '@/assets/humster.png';
+import humsterHappy from '@/assets/humsterHappy.png';
+import humsterNeutral from from '@/assets/humsterNeutral.png';
 
 const imgList = {
     init: humster,
