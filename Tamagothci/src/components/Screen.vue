@@ -108,23 +108,19 @@ const imageSrc = computed(() => {
         return imgList.happy;
     }
 
-    const isSad = Object.values(pet.state).every((value) => value >= ORANGE_THRESHOLD + 10);
+    if (pet.state.healhty < ORANGE_THRESHOLD) {
+        return imgList.sik;
+    }
+
+    if (pet.state.energy < ORANGE_THRESHOLD) {
+        return imgList.sleepy;
+    }
+
+    const isSad = Object.values(pet.state).every((value) => value <= ORANGE_THRESHOLD + 10);
 
     if (isSad) {
         return imgList.sad;
     }
-
-    if (pet.energy < ORANGE_THRESHOLD) {
-        return imgList.sleepy;
-    }
-
-    if (pet.healhty < ORANGE_THRESHOLD) {
-        return imgList.sik;
-    }
-    // happy
-    // neutral
-    // sad
-
 
     return imgList.neutral;
 })
@@ -136,6 +132,7 @@ const resetAction = () => {
 }
  
 const increaeValue = (type) => {
+    pet.action = `action-${type}`;
     pet.increase(type);
 }
 
