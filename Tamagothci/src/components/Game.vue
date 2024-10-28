@@ -29,11 +29,15 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import Screen from './Screen.vue';
 import { GAME_SPEED, pet } from '@/store';
 
 let newPetName = ref('');
+
+watch(pet, () => {
+    localStorage.setItem('tamagothci-pet', JSON.stringify(pet));
+})
 
 
 const createPet = () => {

@@ -86,6 +86,10 @@ const imgList = {
     sleepy: humsterSleepy,
     sik: humsterSik,
     'action-hungry': humsterEat,
+    'action-healhty': humsterHealing,
+    'action-happiness': humsterPlaying,
+    'action-energy': humsterSleeping,
+    'action-hygiene': humsterWashing,
 }
  
 
