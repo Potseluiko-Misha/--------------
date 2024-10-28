@@ -47,7 +47,7 @@ if (pet.name === null) {
     const petFromStorage = JSON.parse(localStorage.getItem('tamagothci-pet'));
     if (petFromStorage?.name) {
         nextTick(() => {
-            state.pet = petFromStorage;
+            state.pet = Object.assign(state.pet, petFromStorage);
         });
     }
 }
