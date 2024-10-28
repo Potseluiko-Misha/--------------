@@ -72,6 +72,7 @@ import humsterNeutral from from '@/assets/humsterNeutral.png';
 
 const imgList = {
     init: humster,
+    neutral: humsterNeutral,
     happy: humsterHappy
 }
  
@@ -90,6 +91,7 @@ const imageSrc = computed(() => {
     //check action
     if (pet.action) {
         if (imgList[pet.action]) {
+            resetAction();
                 return imgList[pet.action];
         }
     }
@@ -97,7 +99,7 @@ const imageSrc = computed(() => {
     const isHappy = Object.values(pet.state).every((value) => value >= GREEN_THRESHOLD);
 
     if (isHappy) {
-        return imgList.happy;
+        return imgList.neutral;
     }
 
     // happy
@@ -108,7 +110,7 @@ const imageSrc = computed(() => {
     return imgList.init;
 })
 
-const reserAction = () => {
+const resetAction = () => {
     setTimeout(() => {
         pet.action = null;
     }, 3000 * GAME_SPEED);
