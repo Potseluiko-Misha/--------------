@@ -48,6 +48,7 @@ if (pet.name === null) {
     if (petFromStorage?.name) {
         nextTick(() => {
             state.pet = Object.assign(state.pet, petFromStorage);
+            startGame();
         });
     }
 }
