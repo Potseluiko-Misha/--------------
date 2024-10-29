@@ -5,7 +5,7 @@
                 <div class="egg">
                     <div class="spacer"></div>
                     <div v-if="pet.name" class="tg_screen">
-                        <div><h1>{{ pet.name }}</h1></div>
+                        <div class="pet_name"><h1>{{ pet.name }}</h1></div>
                         <Screen/>
                     </div>
                     <div v-else class="create-new-pet">
@@ -106,6 +106,10 @@ const decreaseTimer = () => {
     position: relative;
 }
 //<!-- 1024 на 1024 разрешение картинок -->
+.pet_name {
+    text-align: center;
+    color: black;
+}
 
 .create-new-pet {
     width: 40%;
