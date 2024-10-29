@@ -65,7 +65,7 @@
 
 <script setup>
 import { state, GREEN_THRESHOLD, ORANGE_THRESHOLD, GAME_SPEED } from '@/store'
-import { computed } from 'vue';
+import { computed, watch } from 'vue';
 import humster from '@/assets/humster.png';
 import humsterHappy from '@/assets/humsterHappy.png';
 import humsterNeutral from '@/assets/humsterNeutral.png';
@@ -79,6 +79,8 @@ import humsterSleeping from '@/assets/humsterSleeping.png';
 import humsterWashing from '@/assets/humsterWashing.png';
 
 const pet = state.pet;
+
+let deathTimeoutId = ref('');
 
 const imgList = {
     init: humster,
@@ -137,6 +139,12 @@ const imageSrc = computed(() => {
     return imgList.neutral;
 });
 
+watch(pet.state, () => {
+    if (pet.state.healhty === 1) {
+        deathTimer();
+    }
+})
+
 const resetAction = () => {
     setTimeout(() => {
         pet.action = null;
@@ -144,11 +152,13 @@ const resetAction = () => {
 }
 
 const increaeValue = (type) => {
+    if (deathTimeoutId){
+        clearTimeout(deathTimeoutId);
+    }
     pet.action = `action-${type}`;
     state.increase(type);
 }
 
-let deathTimeoutId = ref('');
 
 const deathTimer = () => {
     deathTimeoutId = setTimeout(() => {
