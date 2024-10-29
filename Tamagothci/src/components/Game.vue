@@ -83,6 +83,12 @@ const decreaseTimer = () => {
     }, 1000 * GAME_SPEED);
 }
 
+const deathTimer = () => {
+    setTimeout(() => {
+        pet.isDead = true;
+    }, 2000 * GAME_SPEED);
+}
+
 </script>
 
 
