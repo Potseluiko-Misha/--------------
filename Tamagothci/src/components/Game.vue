@@ -80,7 +80,10 @@ const decreaseTimer = () => {
         state.decrease('energy');
         state.decrease('healhty');
         state.decrease('hygiene');
-        decreaseTimer();
+        if (!pet.isDead) {
+            decreaseTimer();
+        }
+        
     }, 1000 * GAME_SPEED);
 }
 

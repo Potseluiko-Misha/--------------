@@ -65,7 +65,7 @@
 
 <script setup>
 import { state, GREEN_THRESHOLD, ORANGE_THRESHOLD, GAME_SPEED } from '@/store'
-import { computed, watch } from 'vue';
+import { computed, watch, ref } from 'vue';
 import humster from '@/assets/humster.png';
 import humsterHappy from '@/assets/humsterHappy.png';
 import humsterNeutral from '@/assets/humsterNeutral.png';
@@ -77,10 +77,11 @@ import humsterHealing from '@/assets/humsterHealing.png';
 import humsterPlaying from '@/assets/humsterPlaying.png';
 import humsterSleeping from '@/assets/humsterSleeping.png';
 import humsterWashing from '@/assets/humsterWashing.png';
+import humsterDeath from '@/assets/humsterDeath.png';
 
 const pet = state.pet;
 
-let deathTimeoutId = ref('');
+let deathTimeoutId = ref(null);
 
 const imgList = {
     init: humster,
@@ -89,6 +90,7 @@ const imgList = {
     sad: humsterSad,
     sleepy: humsterSleepy,
     sik: humsterSik,
+    dead: humsterDeath,
     'action-hungry': humsterEat,
     'action-healhty': humsterHealing,
     'action-happiness': humsterPlaying,
@@ -108,6 +110,11 @@ const getColorByValue = (value) => {
 }
 
 const imageSrc = computed(() => {
+
+    if (pet.isDead) {
+        return imgList.dead;
+    }
+
     //check action
     if (pet.action) {
         if (imgList[pet.action]) {
@@ -140,8 +147,14 @@ const imageSrc = computed(() => {
 });
 
 watch(pet.state, () => {
-    if (pet.state.healhty === 1) {
-        deathTimer();
+    if (pet.state.healhty === 1 ||
+        pet.state.hungry === 1 ||
+        pet.state.energy === 1
+    ) {
+        // возможно здесь нужен timer
+        if (!deathTimeoutId) {
+            deathTimer();
+        }
     }
 })
 
