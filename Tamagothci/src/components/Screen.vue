@@ -142,11 +142,20 @@ const resetAction = () => {
         pet.action = null;
     }, 1500 * GAME_SPEED);
 }
- 
+
 const increaeValue = (type) => {
     pet.action = `action-${type}`;
     state.increase(type);
 }
+
+let deathTimeoutId = ref('');
+
+const deathTimer = () => {
+    deathTimeoutId = setTimeout(() => {
+        pet.isDead = true;
+    }, 20000 * GAME_SPEED);
+}
+ 
 
 </script>
 

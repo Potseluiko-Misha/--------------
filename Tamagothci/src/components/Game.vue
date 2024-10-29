@@ -37,6 +37,7 @@ const pet = state.pet;
 
 let newPetName = ref('');
 
+
 watch(pet, () => {
     if (pet.name) {
         localStorage.setItem('tamagothci-pet', JSON.stringify(pet));
@@ -83,11 +84,6 @@ const decreaseTimer = () => {
     }, 1000 * GAME_SPEED);
 }
 
-const deathTimer = () => {
-    setTimeout(() => {
-        pet.isDead = true;
-    }, 2000 * GAME_SPEED);
-}
 
 </script>
 
