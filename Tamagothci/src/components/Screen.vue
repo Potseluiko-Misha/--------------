@@ -44,6 +44,11 @@
             />
         </div>
         <div class="screen_action">
+            <v-btn @click="restart()">
+                RESTART
+            </v-btn>
+        </div>
+        <div class="screen_action">
             <v-btn @click="increaeValue('hungry')">
                 🍴
             </v-btn>
@@ -146,17 +151,23 @@ const imageSrc = computed(() => {
     return imgList.neutral;
 });
 
+const deathTimer = () => {
+    deathTimeoutId = setTimeout(() => {
+        pet.isDead = true;
+    }, 20000 * GAME_SPEED);
+}
+
 watch(pet.state, () => {
     if (pet.state.healhty === 1 ||
         pet.state.hungry === 1 ||
         pet.state.energy === 1
     ) {
         // возможно здесь нужен timer
-        if (!deathTimeoutId) {
+        if (!deathTimeoutId.value) {
             deathTimer();
         }
     }
-})
+}, { deep: true });
 
 const resetAction = () => {
     setTimeout(() => {
@@ -173,11 +184,7 @@ const increaeValue = (type) => {
 }
 
 
-const deathTimer = () => {
-    deathTimeoutId = setTimeout(() => {
-        pet.isDead = true;
-    }, 20000 * GAME_SPEED);
-}
+
  
 
 </script>
