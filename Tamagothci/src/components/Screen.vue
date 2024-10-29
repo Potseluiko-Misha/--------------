@@ -43,12 +43,12 @@
                 :src="imageSrc"
             />
         </div>
-        <div class="screen_action">
+        <div v-if="pet.isDead" class="screen_action">
             <v-btn @click="restart()">
                 RESTART
             </v-btn>
         </div>
-        <div class="screen_action">
+        <div v-else class="screen_action">
             <v-btn @click="increaeValue('hungry')">
                 🍴
             </v-btn>
@@ -183,7 +183,21 @@ const increaeValue = (type) => {
     state.increase(type);
 }
 
-
+const restart = () => {
+    state.pet = Object.assign(state.pet, {
+        name: null,
+        state: {
+            happiness: 1,
+            hungry: 1,
+            energy: 1,
+            healhty: 1,
+            hygiene: 1,
+        },
+        isDead: false,
+        action: 'init',
+    });
+    localStorage.removeItem('tamagothci-pet');
+}
 
  
 

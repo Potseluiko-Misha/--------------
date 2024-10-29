@@ -5,6 +5,7 @@
                 <div class="egg">
                     <div class="spacer"></div>
                     <div v-if="pet.name" class="tg_screen">
+                        <div><h1>{{ pet.name }}</h1></div>
                         <Screen/>
                     </div>
                     <div v-else class="create-new-pet">
