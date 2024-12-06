@@ -11,3 +11,6 @@
 import Game from './components/Game.vue';
 
 </script>
+
+
+<!--start - "npm run dev"-->
