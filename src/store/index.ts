@@ -14,12 +14,14 @@ type TPet = {
     state: Record<string, number>,
     isDead: boolean,
     action: string | null,
+    score: number
 }
 
 export const state = reactive<{ pet: TPet, decrease: (type: string) => void,
-    increase: (type: string) => void,}>({
+    increase: (type: string) => void, score: number, }>({
     pet:{
         name: null,
+        score: 0,
         state: {
             happiness: 1,
             hungry: 1,
@@ -30,6 +32,7 @@ export const state = reactive<{ pet: TPet, decrease: (type: string) => void,
         isDead: false,
         action: 'init',
     },
+    score: 0,
     decrease(type: string) {
         if (this.pet.action) return
         let newValue = this.pet.state[type] - getRandomInt(10);
@@ -44,5 +47,6 @@ export const state = reactive<{ pet: TPet, decrease: (type: string) => void,
             newValue = 100;
         }
         this.pet.state[type] = newValue;
+        this.pet.score += 1;
     }
 })

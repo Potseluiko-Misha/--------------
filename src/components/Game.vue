@@ -5,7 +5,7 @@
                 <div class="egg">
                     <div class="spacer"></div>
                     <div v-if="pet.name" class="tg_screen">
-                        <div class="pet_name"><h1>{{ pet.name }}</h1></div>
+                        <div class="pet_name"><h3>Score:{{ pet.score }}</h3><h1>{{ pet.name }}</h1></div>
                         <Screen/>
                     </div>
                     <div v-else class="create-new-pet">
@@ -163,8 +163,9 @@ const decreaseTimer = () => {
     }
 
     .tg_buttons .circle {
-        width: 24px;
-        height: 24px;
+        width: 20px;
+        height: 20px;
     }
 }
 </style>
+
