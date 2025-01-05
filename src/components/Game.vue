@@ -104,7 +104,10 @@ const decreaseTimer = () => {
     aspect-ratio: 3 / 4;
     border-radius: 100% / 125% 125% 80% 80%;
     position: relative;
+    max-width: 100%;
+    overflow: hidden;
 }
+
 //<!-- 1024 на 1024 разрешение картинок -->
 .pet_name {
     text-align: center;
@@ -119,14 +122,10 @@ const decreaseTimer = () => {
 
 .spacer {
     height: 20vh;
-    
 }
 
 .tg_screen {
     width: 70%;
-    
-    
-    
 }
 
 .tg_buttons {
@@ -148,6 +147,24 @@ const decreaseTimer = () => {
         height: 30px;
         border: 1px solid black;
         border-radius: 50%;
+    }
+}
+
+/* Медиа-запрос для экранов шириной до 600px (мобильные устройства) */
+@media (max-width: 600px) {
+    .egg {
+        height: 100vh;
+        aspect-ratio: 3 / 4;
+        overflow: hidden;
+    }
+
+    .create-new-pet, .tg_screen, .tg_buttons {
+        width: 100%;
+    }
+
+    .tg_buttons .circle {
+        width: 24px;
+        height: 24px;
     }
 }
 </style>
